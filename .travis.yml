@@ -8,8 +8,13 @@ matrix:
         sudo: required
 
 before_script:
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get update       ; fi
+ - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get update; fi
 
+
+script:
+ - git stash --all
+ - echo $(pwd)
+ - cd $TRAVIS_BUILD_DIR
 
 after_script:
  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cd ..; fi
