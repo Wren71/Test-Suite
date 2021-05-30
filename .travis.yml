@@ -13,10 +13,10 @@ before_script:
 
 after_script:
  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cd ..; fi
- - git clone https://github.com/lukekoko/Test-Suite.git
+ - git clone https://github.com/Wren71/Test-Suite.git
  - cd Test-Suite
  - bash ./generate_bc.sh
  - git status
  - git add .
  - git commit -m'update bc files'
- - git push https://Wren71:${git_key}@github.com/lukekoko/Test-Suite.git HEAD:master
+ - git push https://Wren71:${git_key}@github.com/Wren71/Test-Suite.git HEAD:master
