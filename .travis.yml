@@ -19,6 +19,7 @@ after_script:
  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cd ..; fi
  - cd Test-Suite
  - echo $(pwd)
+ - git branch 
  - git checkout master
  - bash ./generate_bc.sh
  - git status
