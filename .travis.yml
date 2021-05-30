@@ -1,0 +1,22 @@
+language: generic
+node_js:
+  - "12.13"
+matrix:
+    include:
+      - os: linux
+        dist: bionic
+        sudo: required
+
+before_script:
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get update       ; fi
+
+
+after_script:
+ - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cd ..; fi
+ - git clone https://github.com/lukekoko/Test-Suite.git
+ - cd Test-Suite
+ - bash ./generate_bc.sh
+ - git status
+ - git add .
+ - git commit -m'update bc files'
+ - git push https://Wren71:${git_key}@github.com/lukekoko/Test-Suite.git HEAD:master
