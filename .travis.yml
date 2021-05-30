@@ -7,6 +7,8 @@ matrix:
         dist: bionic
         sudo: required
 
+if: branch = wren-travis
+
 before_script:
  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get update; fi
 
@@ -15,16 +17,12 @@ script:
  - git stash --all
  - echo $(pwd)
 
- 
- - 
-
 after_script:
- if: branch = wren-add-travis
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cd ..; fi
   - cd Test-Suite
   - echo $(pwd)
   - git branch -a
-  - git checkout origin/wren-add-travis
+  - git checkout remotes/origin/wren-add-travis
   - git branch
   - git status
   - bash ./generate_bc.sh
