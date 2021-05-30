@@ -7,7 +7,7 @@ matrix:
         dist: bionic
         sudo: required
 
-if: branch = wren-travis
+if: branch = wren-add-travis
 
 before_script:
  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get update; fi
