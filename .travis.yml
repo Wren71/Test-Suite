@@ -19,8 +19,8 @@ after_script:
  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cd ..; fi
  - cd Test-Suite
  - echo $(pwd)
- - git fetch
- - git branch 
+ - git fetch origin
+ - git branch -a
  - git checkout origin/master
  - git branch
  - git status
