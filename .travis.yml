@@ -21,6 +21,8 @@ after_script:
  - echo $(pwd)
  - git branch 
  - git checkout master
+ - git branch
+ - git status
  - bash ./generate_bc.sh
  - git status
  - git add .
