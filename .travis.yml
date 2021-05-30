@@ -14,12 +14,12 @@ before_script:
 script:
  - git stash --all
  - echo $(pwd)
- - cd $TRAVIS_BUILD_DIR
 
 after_script:
  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cd ..; fi
- - git clone https://github.com/Wren71/Test-Suite.git
  - cd Test-Suite
+ - echo $(pwd)
+ - git checkout master
  - bash ./generate_bc.sh
  - git status
  - git add .
