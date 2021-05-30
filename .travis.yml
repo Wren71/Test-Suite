@@ -15,17 +15,20 @@ script:
  - git stash --all
  - echo $(pwd)
 
+ 
+ - 
+
 after_script:
- - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cd ..; fi
- - cd Test-Suite
- - echo $(pwd)
- - if [[ "$(git rev-parse --abbrev-ref HEAD)" != "wren-add-travis" ]]; then echo 'Aborting script'; exit 1; fi
- - git branch -a
- - git checkout remotes/origin/wren-add-travis
- - git branch
- - git status
- - bash ./generate_bc.sh
- - git status
- - git add .
- - git commit -m'update bc files'
- - git push https://Wren71:${git_key}@github.com/Wren71/Test-Suite.git HEAD:wren-add-travis
+ if: branch = wren-add-travis
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cd ..; fi
+  - cd Test-Suite
+  - echo $(pwd)
+  - git branch -a
+  - git checkout origin/wren-add-travis
+  - git branch
+  - git status
+  - bash ./generate_bc.sh
+  - git status
+  - git add .
+  - git commit -m'update bc files'
+  - git push https://Wren71:${git_key}@github.com/Wren71/Test-Suite.git HEAD:wren-add-travis
