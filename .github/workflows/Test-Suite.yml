@@ -28,9 +28,11 @@ jobs:
           
       - name: env-setup
         run: | 
-            if [ "$RUNNER_OS" = "Linux" ]; then wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add - # Fingerprint: 6084 F3CF 814B 57C1 CF12 EFD5 15CF 4D18 AF4F 7421 ; fi
+            if [ "$RUNNER_OS" = "Linux" ]; then wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key |sudo apt-key add - ; fi
+            if [ "$RUNNER_OS" = "Linux" ]; sudo apt update; fi
+            if [ "$RUNNER_OS" = "Linux" ]; sudo apt install llvm-12; fi
             if [ "$RUNNER_OS" = "Linux" ]; then sudo apt-get update; fi
-            if [ "$RUNNER_OS" = "Linux" ]; then sudo apt-get install unzip llvm-12; fi
+            if [ "$RUNNER_OS" = "Linux" ]; then sudo apt-get install unzip; fi
           
       - name: stash-changes
         run: | 
