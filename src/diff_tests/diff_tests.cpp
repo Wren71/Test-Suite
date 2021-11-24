@@ -74,7 +74,6 @@ std::string extractData(const std::string str, std::string type)
     {
         output << it->second << "\n";
     }
-    std::cout << output.str();
     return output.str();
 }
 
@@ -102,9 +101,7 @@ int main(int argc, char *argv[])
     std::size_t read_write_svfg = cmd1.find("write-svfg");
     if (read_write_svfg!=std::string::npos)
     {
-        std::cout << "write\n";
         data1 = extractData(result, "read_write_svfg");
-        std::cout << "read\n";
         data2 = extractData(result2, "read_write_svfg");
     } 
     else 
